@@ -132,7 +132,7 @@ class HomeController extends Master
         $metaTags['sitename']     =self::getAppName();
 
         //Get All Features Products From Different Vendor
-        $productsList = UserProduct::where('status','=',1)->orderBy('id')->paginate(self::getPageItem());
+        $productsList = UserProduct::where('status','=',1)->orderBy('id','DESC')->paginate(self::getPageItem());
 
 
         return view(Master::loadFrontTheme('frontend.index'),array(

@@ -1,0 +1,23 @@
+//Seller Id Into Product Table For Specfic Seller
+
+ALTER TABLE `so_user_products` ADD `seller_id` BIGINT NULL AFTER `user_id`;
+ALTER TABLE `so_user_products` ADD INDEX(`user_id`);
+ALTER TABLE `so_user_products` ADD INDEX(`seller_id`);
+ALTER TABLE `so_user_products` ADD INDEX(`product_id`);
+ALTER TABLE `so_user_products` ADD INDEX(`status`);
+
+
+//24-12-2018
+ALTER TABLE `so_delivery_addresses` ADD `location` VARCHAR(225) NOT NULL AFTER `pincode`;
+ALTER TABLE `so_delivery_addresses` CHANGE `location` `location` VARCHAR(225) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL;
+ALTER TABLE `so_delivery_addresses` ADD `district` VARCHAR(100) NULL AFTER `location`;
+ALTER TABLE `so_delivery_addresses` ADD `status` VARCHAR(100) NULL AFTER `district`;
+ALTER TABLE `so_delivery_addresses` ADD `location_id` INT NOT NULL DEFAULT '0' AFTER `country`;
+ALTER TABLE `so_delivery_addresses` ADD `email_address` VARCHAR(225) NULL AFTER `mobile`;
+ALTER TABLE `so_delivery_addresses` ADD `state` VARCHAR(100) NULL AFTER `district`;
+
+
+23-01-2019
+ALTER TABLE `so_user_products` ADD `offers` LONGTEXT NULL AFTER `discount_value`;
+ALTER TABLE `so_user_products` ADD `return_policy` LONGTEXT NULL AFTER `offers`;
+ALTER TABLE `so_user_products` ADD `about_product` LONGTEXT NULL AFTER `discount_value`;

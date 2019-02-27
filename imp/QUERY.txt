@@ -1,0 +1,7 @@
+UPDATE `so_brands` SET `brand_code` = SUBSTRING_INDEX(UPPER(name),' ',1);
+UPDATE `so_brands` SET `brand_code` = SUBSTR(`brand_code`,3,0);
+
+UPDATE `so_master_unit` SET `code` = SUBSTRING_INDEX(UPPER(name),' ',1);
+UPDATE `so_categories` SET `cat_code` = SUBSTRING_INDEX(UPPER(name),' ',1);
+
+SUBSTR('DASDASDAS',3,3)

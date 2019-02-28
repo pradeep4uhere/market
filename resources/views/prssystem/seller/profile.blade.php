@@ -74,7 +74,7 @@ Home Page
                         <label for="inputPassword" class="col-sm-2 control-label">@lang('seller.profile.state')</label>
                         <div class="col-sm-8">
                             <select class="form-control1"  id="state" name="state" onchange="getCity(this.value)">
-                                <option value="" ="">Choose State</option>
+                                <option value="">Choose State</option>
                                 @if(!empty($stateList))
                                 @foreach($stateList as $name)
                                 <option value="{{$name->state}}" <?php if(strtolower($stateName)==strtolower($name->state)){ ?> selected="selected" <?php } ?>>{{$name->state}}</option>

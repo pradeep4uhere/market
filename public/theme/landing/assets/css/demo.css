@@ -1,0 +1,39 @@
+.logo-container{
+    left: 50px;
+    position: absolute;
+    top: 20px;
+     z-index: 3;
+}
+.logo-container .logo{
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid #333333;
+    width: 60px;
+    float: left;
+}
+
+.logo-container .logo img{
+    border: 0;
+    width: 100%;
+}
+
+.logo-container .brand{
+    font-size: 25px;
+    color: #FFFFFF;
+    line-height: 20px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 19px;
+    width: 60px;
+    border: 0px
+}
+
+.made-with-mk .brand {
+   position: relative;
+    top: -7px;
+    left: -1px;
+    letter-spacing: -12px;
+    vertical-align: top;
+    font-size: 28px;
+    font-weight: 600;
+}

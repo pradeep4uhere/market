@@ -59,7 +59,10 @@
 
     Route::get('/login','Auth\LoginController@showLoginForm')->name('login');
     Route::post('/login','Auth\LoginController@login')->name('login');
-    
+    Route::get('/create', 'Auth\RegisterController@becomeUser')->name('create');
+    Route::post('/create', 'Auth\RegisterController@becomeUser')->name('create');
+    Route::get('/becomeseller', 'Auth\RegisterController@becomeSeller')->name('becomeseller');
+    Route::post('/becomeseller', 'Auth\RegisterController@becomeSeller')->name('becomeseller');
     Route::get('/register', 'Auth\RegisterController@registerPage')->name('register');
     Route::post('/register', 'Auth\RegisterController@register')->name('register');
     Route::get('password/reset','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');

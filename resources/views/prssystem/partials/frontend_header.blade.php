@@ -147,7 +147,11 @@
                                           </li>
 
                                           <li class="create_account">
-                                            <a href="{{route('register')}}" id="customer_register_link">Create Account</a>
+                                            <a href="{{route('create')}}" id="customer_register_link">Create Account</a>
+                                          </li>
+
+                                          <li class="create_account" style="border-top: 0px;">
+                                            <a href="{{route('becomeseller')}}" id="customer_register_link">Become Seller</a>
                                           </li>
                                           
                                           <li class="wishlist"><a href="/pages/wishlist">Wishlist</a></li>

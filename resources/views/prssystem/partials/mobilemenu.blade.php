@@ -20,7 +20,8 @@
               <li class="list-group-item"><i class="fa fa-sign-out"></i>&nbsp;<a href="{{route('logout')}}" id="customer_register_link">Logout</a></li>
               @else
               <li class="list-group-item"><i class="fa fa-sign-in"></i>&nbsp;<a href="{{route('login')}}" id="customer_login_link">Log In</a></li>
-              <li class="list-group-item"><i class="fa fa-user-plus"></i>&nbsp;<a href="{{route('register')}}" id="customer_register_link">Create Account</a></li>
+              <li class="list-group-item"><i class="fa fa-user-plus"></i>&nbsp;<a href="{{route('create')}}" id="customer_register_link">Create Account</a></li>
+              <li class="list-group-item"><i class="fa fa-user-plus"></i>&nbsp;<a href="{{route('becomeseller')}}" id="customer_register_link">Become Seller</a></li>
               @endif
             </ul>
     </div>

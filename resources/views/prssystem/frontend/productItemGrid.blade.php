@@ -3,15 +3,15 @@
                       @foreach($productList as $prodObj)
                       <?php //dd($prodObj);?>
                         <!-- <div class="grid__item grid__item--collection-template col-xs-6 col-sm-4 col-md-4 col-lg-3 col-xl-3"> -->
-                        <div class="grid__item grid__item--collection-template col-xs-12 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                        <div class="grid__item grid__item--collection-template col-xs-12 col-sm-4 col-md-4 col-lg-3 col-xl-3" style="border: solid 1px #eee">
                            <div class="grid-view-item ">
                               <div class="grid-view-item__link grid-view-item__image-container">
                                  <div class="grid-view-item__image-wrapper js">
                                     <a href="{{route('details',['slug'=>str_slug($prodObj['Product']['title']),'id'=>encrypt($prodObj['UserProduct']['id'])])}}">
                                        <div class="image-inner">
-                                          <div class="reveal" style="max-height:250px;">
-                                             <img class="grid-view-item__image  main-img lazyloaded" src="{{config('global.PRODUCTS_STORAGE_DIR')}}/{{$prodObj['UserProduct']['seller_id']}}/{{config('global.PRODUCT_THUMB_IMG_WIDTH')}}X{{config('global.PRODUCT_THUMB_IMG_HEIGHT')}}/{{$prodObj['UserProduct']['default_images']}}" onerror="this.onerror=null;this.src='{{ Config('global.THEME_URL_FRONT_IMAGE') }}/default250x250.jpg';" />
-                                              <img class="extra-img" src="{{config('global.PRODUCTS_STORAGE_DIR')}}/{{$prodObj['UserProduct']['seller_id']}}/{{config('global.PRODUCT_THUMB_IMG_HEIGHT')}}X{{config('global.PRODUCT_THUMB_IMG_HEIGHT')}}/{{$prodObj['UserProduct']['default_images']}}" alt="image" onerror="this.onerror=null;this.src='{{ Config('global.THEME_URL_FRONT_IMAGE') }}/default250x250.jpg';" width="100%">
+                                          <div class="reveal"  style="min-height:171px;">
+                                             <img class="grid-view-item__image  main-img lazyloaded" src="{{config('global.PRODUCTS_STORAGE_DIR')}}/{{$prodObj['UserProduct']['seller_id']}}/{{config('global.PRODUCT_THUMB_IMG_WIDTH')}}X{{config('global.PRODUCT_THUMB_IMG_HEIGHT')}}/{{$prodObj['UserProduct']['default_images']}}" onerror="this.onerror=null;this.src='{{ Config('global.THEME_URL_FRONT_IMAGE') }}/default250x250.jpg';" style="min-height:171px;"/>
+                                              <img class="extra-img" src="{{config('global.PRODUCTS_STORAGE_DIR')}}/{{$prodObj['UserProduct']['seller_id']}}/{{config('global.PRODUCT_THUMB_IMG_HEIGHT')}}X{{config('global.PRODUCT_THUMB_IMG_HEIGHT')}}/{{$prodObj['UserProduct']['default_images']}}" alt="image" onerror="this.onerror=null;this.src='{{ Config('global.THEME_URL_FRONT_IMAGE') }}/default250x250.jpg';" width="100%" style="min-height:171px;">
 
                                              <span class="spr-badge" id="spr_badge_1639015841892" data-rating="0.0"><span class="spr-starrating spr-badge-starrating"><i class="spr-icon spr-icon-star-empty"></i><i class="spr-icon spr-icon-star-empty"></i><i class="spr-icon spr-icon-star-empty"></i><i class="spr-icon spr-icon-star-empty"></i><i class="spr-icon spr-icon-star-empty"></i></span>
                                              <span class="spr-badge-caption">No reviews</span>

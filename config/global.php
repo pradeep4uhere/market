@@ -61,6 +61,8 @@ return [
     'THEME_URL_CSS'=>$public_url.'/public/theme/prssystem/css',
     'THEME_URL_JS'=>$public_url.'/public/theme/prssystem/js',
     'THEME_URL_IMAGE'=>$public_url.'/public/theme/prssystem/img',
+
+    'LANDING_URL'=>$public_url.'/public/theme/landing',
     
     'THEME_URL_FRONT_CSS'=>$public_url.'/public/theme/prssystem/css/front',
     'THEME_URL_FRONT_JS'=>$public_url.'/public/theme/prssystem/js/front',

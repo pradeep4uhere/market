@@ -33,6 +33,7 @@
         enable_page_level_ads: true
       });
     </script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body class="template-index" style="">
 <div class="whole-content">

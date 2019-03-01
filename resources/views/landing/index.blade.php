@@ -121,7 +121,7 @@
                                   <div class="col-sm-5">
                                       <div class="form-group">
                                           <label>Mobile No <small>(required)</small></label>
-                                          <input name="mobile" type="text" class="form-control" placeholder="e.g 9015446567" maxlength="10" value="{{Session::get('mobile')}}">
+                                          <input name="mobile" id="mobile" type="text" class="form-control" placeholder="e.g 9015446567" maxlength="10" value="{{Session::get('mobile')}}">
                                       </div>
                                   </div>
                                   <div class="col-sm-5 col-sm-offset-1">

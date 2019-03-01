@@ -12,6 +12,11 @@ Contact Us
        <div class="container">
           <div class="contact-form">
            <div class="row">
+            <div class="col-md-4 featured-responsive">
+                    <div class="detail-filter-text">
+                        <h3>Is account registration required?</h3>
+                    </div>
+                </div>
                <div class="col-sm-7">   
                     
                     <?php if(array_key_exists('status', $error)){

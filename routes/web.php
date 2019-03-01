@@ -85,8 +85,8 @@
     Route::get('/page/faq', 'Page\PageController@FAQ')->name('faq');
     Route::get('/page/{slug}', 'Page\PageController@viewPage')->name('viewPage');
     Route::get('/allfaqs', 'Page\PageController@allfaqs')->name('allfaqs');
-    Route::get('/contactus', 'Page\PageController@contactus')->name('contactus');
-    Route::post('/contactus', 'Page\PageController@contactus')->name('contactus');
+    Route::get('/contactus', 'Page\PageController@contactus')->name('contactuspage');
+    Route::post('/contactus', 'Page\PageController@contactus')->name('contactuspage');
     
     Route::group(['middleware' => 'auth'], function () {
         Route::post('/cart/{id}', 'Product\CartController@addToCart')->name('addtoCart');

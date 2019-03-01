@@ -44,6 +44,51 @@ class EmailController extends Controller
 
 
 
+    /*
+     *@Author: Pradeep Kumar
+     *@Desc  : Send New Register User
+     */
+    public static function sendContactUsEmailToUser($request){
+        $name = $request->get('name');
+        $surname = $request->get('surname');
+        $email = $request->get('email');
+        $phone = $request->get('phone');
+        $message = $request->get('message');
+
+        $user['name']= $name.' '.$surname;
+        $user['email']= $email;
+
+        $url  = env('APP_URL');
+        $body1 = "Thanks for contacting us.";
+        $nameStr = $name.' '.$surname;
+        $messageTitle = "Your query/message as below-";
+        $messageBody = $message;
+        $body2= "we are doing our best, we will back to you 2 working days, Thank you for joining with us.";
+        $mail = Mail::send('Email.admin.contactus', [
+                'name' => $name,
+                'body1' => $body1,
+                'nameStr' => $nameStr,
+                'msg' => $messageTitle,
+                'messageBody' => $messageBody,
+                'username' => $user['name'],
+                'body3' => $body2,
+                'url'  => $url 
+            ], function ($m) use ($user) {
+            $m->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+            $m->to($user['email'], ucwords(strtolower($user['name'])))
+                ->bcc(env('MAIL_FROM_ADDRESS'))
+                ->subject('Thank you for register with Go4Shop!');
+        });
+        if($mail){
+            return true;
+        }
+
+    } 
+
+
+
+
+
 
 
 

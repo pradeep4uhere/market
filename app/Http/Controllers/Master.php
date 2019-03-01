@@ -264,11 +264,14 @@ class Master extends Controller {
 
 
     /*Send All Email To User*/
-    public static function sendEmailToUser($type,$request, $data){
+    public static function sendEmailToUser($type,$request,$data){
         $Email = new EmailController();
         switch($type){
             case 'newUser':
                     $Email::sendNewUserRegister($request, $data);
+                    break;
+            case 'contactUs':
+                    $Email::sendContactUsEmailToUser($request);
                     break;
             default: break;
         }

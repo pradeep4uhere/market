@@ -105,8 +105,10 @@ class PageController extends Master
 
     /***************FAQ***************************/
     public function contactus(Request $request){
+
         $responseArray = array();
         if ($request->isMethod('post')) {
+
             $validator = Validator::make($request->all(), [
                 'name' => 'required|min:3',
                 'surname' => 'required|min:3',
@@ -136,14 +138,18 @@ class PageController extends Master
                     $contactObj->save();
                     $responseArray['status'] = true;
                     $responseArray['message']= "Thank you for contact us, we will back to you 2 business working days.";
+                    Master::sendEmailToUser('contactUs',$request,NULL);
                 }catch(Exception $e){
                     $responseArray['status'] = '9999';
                     $responseArray['message']= "Somthing went wrong, Please try after sometime.";
                 }
+                   //     dd($responseArray);
+
 
             }
         }
-        return view(Master::loadFrontTheme('page.contactus'),array('error'=>$responseArray));
+        // return view(Master::loadFrontTheme('page.contactus'),array('error'=>$responseArray));
+        return view('landing.contactus',array('error'=>$responseArray));
     }
 
 }

@@ -152,4 +152,27 @@ class PageController extends Master
         return view('landing.contactus',array('error'=>$responseArray));
     }
 
+
+
+
+    public function faqslist(Request $request){
+        $faqs = Faq::paginate(self::getPageItem()); 
+        return view('admin.page.allfaqlist',array(
+            'faqsArr'=>$faqs,
+            'links'=>$faqs->links()
+        ));
+
+    }
+
+
+
+    public function ContactUsList(Request $request){
+        $list = ContactUs::orderBy('id','DESC')->paginate(self::getPageItem()); 
+        return view('admin.page.allcontactuslist',array(
+            'listArr'=>$list,
+            'links'=>$list->links()
+        ));
+
+    }
+
 }

@@ -51,7 +51,7 @@ Go4Shop.
           <a href="#details" data-toggle="tab">I am</a>
         </li>
         <li>
-          <a href="#captain" data-toggle="tab">Room Type</a>
+          <a href="#captain" data-toggle="tab">Basic Details</a>
         </li>
         <li>
           <a href="#description" data-toggle="tab">Your Message</a>
@@ -215,13 +215,10 @@ Go4Shop.
       <!-- row -->
     </div>
     <!--  big container -->
-    <div class="footer">
-      <div class="container text-center">
-Made with 
-        <i class="fa fa-heart heart"></i> by 
-        <a href="http://www.creative-tim.com">Creative Tim</a>. Free download 
-        <a href="http://www.creative-tim.com/product/material-bootstrap-wizard">here.</a>
-      </div>
+  <div class="footer">
+        <div class="container">
+             Made with by <a href="{{env('APP_URL')}}">www.go4shop.online</a>
+        </div>
     </div>
   </div>
 </body>

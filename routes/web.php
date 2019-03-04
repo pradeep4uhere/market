@@ -32,8 +32,20 @@
     Route::post('/import_process', 'Import\ImportController@processImport')->name('import_process');
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     Route::get('/notify', 'PusherController@sendNotification');
-    Route::view('/home', 'home');
-
+   
+    // Admin routes
+    Route::group(['middleware' => 'auth','prefix' =>'admin'], function () {
+            Route::post('/contactus', 'Page\PageController@contactus')->name('contactus');
+            Route::get('/contactus', 'Page\PageController@contactus')->name('contactus');
+            Route::get('/page/allpagelist', 'Page\PageController@allPageList')->name('allPageList');
+            Route::get('/page/faq/{id}', 'Page\PageController@updateFaq')->name('updatePageFaq');
+            Route::post('/page/faq/{id}', 'Page\PageController@updateFaq')->name('updatePageFaq');
+            Route::get('/p/faq/faqlist', 'Page\PageController@faqslist')->name('faqlist');
+            Route::get('/p/contactuslist', 'Page\PageController@ContactUsList')->name('ContactUsList');
+            Route::get('/page/{slug}', 'Page\PageController@updatePage')->name('editContent');
+            Route::post('/page/{slug}', 'Page\PageController@updatePage')->name('updatePage');
+            
+    });
     
 
     //ExamplePages
@@ -105,7 +117,8 @@
         Route::post('/success', 'Order\OrderController@paymentSuccess')->name('success');
 
         Route::get('/updateprofile', 'User\UserController@profile')->name('updateProfile');        
-        Route::get('/profile', 'User\UserController@dashboard')->name('dashboard');        
+        Route::get('/profile', 'User\UserController@dashboard')->name('dashboard'); 
+        Route::get('/home', 'User\UserController@dashboard')->name('home');        
         Route::get('/logout', 'User\UserController@logout')->name('logout'); 
         //Seller Profile Start Here
         Route::get('/seller/dashboard', 'Seller\SellerController@dashboard')->name('seller');
@@ -147,14 +160,19 @@
 
         
         //Category Section
+        Route::get('/getstorebrandlist', 'Brand\BrandController@getStoreBrandsTreeList')->name('getstorebrandlist');
+        Route::get('/allunits', 'Category\CategoryController@allUnits')->name('allunits');
 		Route::get('/allcategory', 'Category\CategoryController@allcategory')->name('allcategory');
-		Route::get('/getcategory', 'Category\CategoryController@getAllCategory')->name('getcategory');
+        Route::get('/getcategory', 'Category\CategoryController@getAllCategory')->name('getcategory');
+        Route::get('/getStoreCategory', 'Category\CategoryController@getStoreCategory')->name('getStoreCategory');
+		Route::get('/getStoreSubCategory', 'Category\CategoryController@getStoreSubCategory')->name('getStoreSubCategory');
         Route::get('/addcategory', 'Category\CategoryController@addcategory')->name('addcategory');
         Route::post('/savecategory', 'Category\CategoryController@savecategory')->name('savecategory');
         Route::post('/delcategory', 'Category\CategoryController@delcategory')->name('delcategory');
-
-        Route::get('/getbrands', 'Brand\BrandController@getAllBrands')->name('getbrands');
+        Route::post('/savestoretype', 'Category\CategoryController@saveStoreType')->name('savestoretype');
+        Route::get('/getbrands', 'Brand\BrandController@getAllBrandsList')->name('getbrands');
         Route::post('/savebrand', 'Brand\BrandController@savebrand')->name('savebrand');
+        Route::post('/saveunit', 'Category\CategoryController@saveUnit')->name('saveunit');
         
 		//All Ajax Call herer
         Route::post('/getSubCategory', 'Category\CategoryController@getSubCategory')->name('getSubCategory');
@@ -189,13 +207,4 @@
         Route::get('/addproduct', 'Product\ProductController@addProduct')->name('selleraddproduct');
     });
 
-    // Admin routes
-    Route::group(['middleware' => 'auth','prefix' =>'admin'], function () {
-            Route::post('/contactus', 'Page\PageController@contactus')->name('contactus');
-            Route::get('/contactus', 'Page\PageController@contactus')->name('contactus');
-            Route::get('/page/allpagelist', 'Page\PageController@allPageList')->name('allPageList');
-            Route::get('/page/{slug}', 'Page\PageController@updatePage')->name('editContent');
-            Route::post('/page/{slug}', 'Page\PageController@updatePage')->name('updatePage');
-            Route::get('/page/faq/{id}', 'Page\PageController@updateFaq')->name('updatePageFaq');
-            Route::post('/page/faq/{id}', 'Page\PageController@updateFaq')->name('updatePageFaq');
-    });
+

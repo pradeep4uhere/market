@@ -326,9 +326,13 @@ class Master extends Controller {
 
 
 
-    public static function getSeller(){
+    public static function getSeller($field=NULL){
         $sellerArr = Seller::where('user_id','=',Auth::user()->id)->first();
-        return $sellerArr;
+        if($field!=''){
+            return $sellerArr[$field];
+        }else{
+            return $sellerArr;
+        }
     }
 
 

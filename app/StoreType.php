@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class StoreType extends Model
 {
     protected $table = 'store_types';
+
+    public $timestamps = false;
 	
 	
 	public function Seller() {

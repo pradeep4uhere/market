@@ -376,7 +376,7 @@
                                  <li class="category">
                                     <span class="float-xs-right hidden-lg-up">
                                     </span>
-                                    <a href="{{route('register')}}" class="dropdown-item">
+                                    <a href="{{route('becomeseller')}}" class="dropdown-item">
                                        <h3 class="title">BECOME SELLER</h3>
                                     </a>
                                  </li>

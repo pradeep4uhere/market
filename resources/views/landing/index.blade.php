@@ -285,7 +285,7 @@
 
     <div class="footer">
         <div class="container">
-             Made with <i class="fa fa-heart heart"></i> by <a href="{{env('APP_URL')}}">www.go4shop.online</a>
+             Made with by <a href="{{env('APP_URL')}}">www.go4shop.online</a>
         </div>
     </div>
 

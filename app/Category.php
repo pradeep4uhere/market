@@ -34,7 +34,7 @@ class Category extends Model
         ->select(['id', 'name','name as text','parent_id','id as href','status'])
         ->with('nodes');
 	}
-	
+
 	
     public function getAllCategory($storeType=NULL){
         $cateArr=array();
@@ -73,10 +73,57 @@ class Category extends Model
 	
 	
 	
-	 public function getAllCategoryWithChild(){
+     public function getAllCategoryWithChild(){
         $cateArr=array('9999'=>'Not Available');
         $catObj = Category::where('parent_id','=','0')
                 ->orwhere('status','=','1')
+                ->with('nodes')
+                ->get(['id', 'name','name as text','parent_id','name as href','status']);
+                //dd($catObj);
+        foreach ($catObj as $obj) {
+            if($obj->parent_id==0){
+                $cateArr[$obj->id]=array('name'=>$obj->name);
+            }
+        }
+        return $catObj;
+    }
+
+
+
+	public function getAllStoreTypeCategoryWithChild($store_type){
+        $cateArr=array('9999'=>'Not Available');
+        $catObj = Category::where('parent_id','=','0')
+                ->where('store_type','=',$store_type)
+                ->where('status','=','1')
+                ->with('nodes')
+                ->get(['id', 'name','name as text','parent_id','name as href','status']);
+                //dd($catObj);
+        foreach ($catObj as $obj) {
+            if($obj->parent_id==0){
+                $cateArr[$obj->id]=array('name'=>$obj->name);
+            }
+        }
+        return $catObj;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Used On Brand Listing
+    public function getAllStoreTypeSubCategoryWithChild($store_type,$parent_id){
+        $cateArr=array('9999'=>'Not Available');
+        $catObj = Category::where('parent_id','=',$parent_id)
+                ->where('store_type','=',$store_type)
+                ->where('status','=','1')
 				->with('nodes')
 			    ->get(['id', 'name','name as text','parent_id','name as href','status']);
                 //dd($catObj);
@@ -93,6 +140,13 @@ class Category extends Model
     public function children() { 
         return $this->hasMany('App\Category', 'parent_id', 'id'); 
     }
+
+
+
+
+
+
+
 
 
 

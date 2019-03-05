@@ -339,7 +339,6 @@ class OrderController extends Master
     		if(!empty($orderId)){
 
     			$orderDeails = Order::where('orderID','=',$orderId)->get();
-
     			//Update the Order Table Status
     			if($request->get('status')=='success'){
     				$res = Order::where('orderID','=',$orderId)->update(['payment_status' => 'Success','order_status'=>'Confirm']);
@@ -349,19 +348,28 @@ class OrderController extends Master
     					//Send Order Confirmation To User By Payment Id
 
     					//Send Order Confirmation To User
-    					$this->sendWhatsappMessage('paymentConfirmation',$lastPaymentId);
+    					//$this->sendWhatsappMessage('paymentConfirmation',$lastPaymentId);
     					
     					//Send Order Confirmation To User
-    					$this->sendWhatsappMessage('orderConfirmation',$lastPaymentId);
+    					//$this->sendWhatsappMessage('orderConfirmation',$lastPaymentId);
 
     					//Send Order Confirmation To Seller
-    					$this->sendWhatsappMessage('orderRecivedSeller',$lastPaymentId);
+    					//$this->sendWhatsappMessage('orderRecivedSeller',$lastPaymentId);
+
+    					//Send Email to Seller For Order Confirmation
+			            Master::sendEmailToSeller('newOrder',$orderDeails);
+
+			            //Send Email to User For Order Confirmation
+			            //Master::sendEmailToUser('newOrder',$orderDeails);
+
 
     					if($lastPaymentId){
    							return redirect()->route('thanks', ['token'=>Session::get('_token'),'id'=>encrypt($orderDeails[0]['id'])]);
    						}else{
    							return redirect()->route('failed', ['token'=>Session::get('_token'),'id'=>encrypt($orderDeails[0]['id'])]);
    						}
+    				}else{
+    					return redirect()->route('thanks', ['token'=>Session::get('_token'),'id'=>encrypt($orderDeails[0]['id'])]);
     				}
     			}
     		}

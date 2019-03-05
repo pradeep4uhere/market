@@ -273,6 +273,9 @@ class Master extends Controller {
             case 'contactUs':
                     $Email::sendContactUsEmailToUser($request);
                     break;
+            case 'newOrder':
+                    $Email::sendOrderConfirmationToUser($data);
+                    break;
             default: break;
         }
     }
@@ -285,6 +288,10 @@ class Master extends Controller {
         switch($type){
             case 'newSeller':
                     $Email::sendWelcomeSellerEmail($data);
+                    break;
+
+            case 'newOrder':
+                    $Email::sendOrderConfirmationSellerEmail($data);
                     break;
             default: break;
         }
@@ -333,6 +340,13 @@ class Master extends Controller {
         }else{
             return $sellerArr;
         }
+    }
+
+
+
+    public static function getDate($formate='d M,Y',$date){
+        return date($formate,strtotime($date));
+
     }
 
 

@@ -183,7 +183,7 @@ new UISearch(document.getElementById('sb-search'));
                        
                         <ul class="dropdown-menu drp-mnu">
                              <br/>
-                            <li><a href="{{ route('home') }}" target="_blank"><i class="fa fa-globe"></i> View Website</a> </li> 
+                            <li><a href="{{ route('homePage') }}" target="_blank"><i class="fa fa-globe"></i> View Website</a> </li> 
                             <li> <a href="{{ route('seller') }}"><i class="fa fa-cog"></i> Become Seller</a> </li> 
                             <li> <a href="{{ route('updateProfile') }}"><i class="fa fa-user"></i>Profile</a> </li> 
                             <li> <a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> Logout</a> </li>

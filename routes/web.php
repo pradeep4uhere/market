@@ -82,7 +82,7 @@
     Route::get('getdislist/{district}','Master@getlocationlist')->name('getdislist');
 
 
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('homePage');
     Route::get('/listing', 'HomeController@listing')->name('listing');
     Route::get('/detail/{slug}/{id}', 'Product\ProductController@details')->name('details');
     Route::post('/getlocation', 'HomeController@getlocation')->name('getlocation');
@@ -118,7 +118,7 @@
 
         Route::get('/updateprofile', 'User\UserController@profile')->name('updateProfile');        
         Route::get('/profile', 'User\UserController@dashboard')->name('dashboard'); 
-        Route::get('/home', 'User\UserController@dashboard')->name('home');        
+        Route::get('/home', 'User\UserController@dashboard')->name('home'); 
         Route::get('/logout', 'User\UserController@logout')->name('logout'); 
         //Seller Profile Start Here
         Route::get('/seller/dashboard', 'Seller\SellerController@dashboard')->name('seller');

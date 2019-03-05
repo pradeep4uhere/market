@@ -832,7 +832,7 @@ class SellerController extends Master
             ]);
             Session::flash('message', 'Seller Profile Updated Successfully!'); 
             //Send Welcome Message to Seller
-            $this->sendWhatsappMessage('newSeller',$seller);
+            //$this->sendWhatsappMessage('newSeller',$seller);
 
             //Send Email to Seller
             Master::sendEmailToSeller('newSeller',$seller);

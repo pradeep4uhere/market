@@ -96,7 +96,7 @@ class HomeController extends Master
 			$catJson[]=$obj;
 		}
 		//Get All Seller List
-		$seller = Seller::with('StoreType')->with('SellerImage')->get();
+		$seller = Seller::where('status','=',1)->with('StoreType')->with('SellerImage')->get();
 		//dd($seller);
 
 
@@ -132,8 +132,11 @@ class HomeController extends Master
         $metaTags['sitename']     =self::getAppName();
 
         //Get All Features Products From Different Vendor
-        $productsList = UserProduct::where('status','=',1)->orderBy('id','DESC')->paginate(self::getPageItem());
-
+        // $storeTypeArr = Master::getStoreType();
+        $storeTypeArr = StoreType::where('status','=','1')->get(['id'])->toArray();
+        $sellerId = Seller::whereIn('store_type_id',$storeTypeArr)->get(['id'])->toArray();
+        $productsList = UserProduct::with('Seller')->whereIn('seller_id',$sellerId)->where('user_products.status','=',1)->orderBy('id','DESC')->paginate(self::getPageItem());
+        
 
         return view(Master::loadFrontTheme('frontend.index'),array(
 		'catJson'=>json_encode($catJson),

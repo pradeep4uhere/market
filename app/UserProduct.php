@@ -43,6 +43,10 @@ class UserProduct extends Model
          return $this->belongsTo(User::class)->withDefault();
     }
     
+    public function Seller() {
+         return $this->belongsTo(Seller::class)->withDefault();
+    }
+    
     
     
     //

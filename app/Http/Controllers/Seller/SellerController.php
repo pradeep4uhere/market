@@ -316,9 +316,11 @@ class SellerController extends Master
 
         //Get All the Category For Filter Respective Store Type
         $categoryList = Category::with('children')
+        ->where('status','=',1)
         ->where('parent_id','=',0)
         ->where('store_type','=',$seller['store_type_id'])
         ->paginate(self::getPageItem(100));
+        
         if($seller['store_type_id']==8){
           $featureImage = 'furnitures.jpg';
         }else if($seller['store_type_id']==2){

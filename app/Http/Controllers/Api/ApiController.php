@@ -136,5 +136,8 @@ class ApiController extends Master
     }
 
 
-
+    public function chat(Request $request){
+    	Log::info($request->all());
+    	return response()->json($request->all());
+    }
 }

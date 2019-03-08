@@ -4,6 +4,7 @@ Route::group(['prefix' => 'en/v1/'], function (){
 	
 	//Twilio API Integration
 	//http://go4shop.online/api/en/v1/sms/twilio
+	Route::any('chat', 'Api\ApiController@chat')->name('chat');
 	Route::any('sms/twilio', 'Api\ApiController@twiliowhatsapp')->name('twilio');
 
 

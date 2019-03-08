@@ -271,7 +271,7 @@
                         </div>
                      </div>
                      <div class="banner-btn">
-                        <a href="https://smartshop-ishi.myshopify.com/">
+                        <a href="{{env('APP_URL')}}">
                         SHOP NOW
                         </a>
                      </div>
